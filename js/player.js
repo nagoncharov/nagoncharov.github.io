@@ -23,18 +23,14 @@ function decrypt(ciphertextStr, arbitary_key) {
 }
 
 /* Функция создания адреса файла */
-function address(file, slug, selfmade, html5 = false, zip = false, hls_debug = true) {
-    if (hls_debug) {
-      html5 = false;
-      selfmade = true;
-    }
+function address(file, slug, selfmade, html5 = false, zip = false) {
     /* Данные из Amazon Cloudfront */
     var webDist = "https://d35raauzs56ob1.cloudfront.net/";
-    var hlsDist = "https://d13g42gjj7lr3a.cloudfront.net/";
+    var hlsDist = "https://d2mtbe6k2can1m.cloudfront.net/";
     var zipDist = "https://d3kif91e92qv66.cloudfront.net/";
 
     if (zip) {
-        return zipDist + decrypt(file.trim(),slug);
+        return zipDist + decrypt(file.trim(), slug);
     }
     if (selfmade) {
         var folder = "video/";
@@ -42,8 +38,10 @@ function address(file, slug, selfmade, html5 = false, zip = false, hls_debug = t
         var folder = "";
     }
     if (html5) {
+        console.log("html5");
         return webDist + folder + decrypt(file.trim(), slug);
     } else {
+        console.log("hey!");
         var path = decrypt(file.trim(), slug);
         path = path.slice(0, -4);
         path = path + "/index.m3u8"
@@ -52,10 +50,7 @@ function address(file, slug, selfmade, html5 = false, zip = false, hls_debug = t
 }
 
 // Функция создания плеера без плейлиста Videojs
-function singlePlayer(json, slug, html5 = true, hls_debug = true) {
-  if (hls_debug) {
-    html5 = false;
-  }
+function singlePlayer(json, slug, html5 = true) {
     var setup = {
         controls: true,
         width: "100%",
@@ -72,13 +67,12 @@ function singlePlayer(json, slug, html5 = true, hls_debug = true) {
             type: 'video/mp4'
         }];
     } else {
-        console.log("running ok");
+        console.log("hls");
         setup.sources = [{
             src: address(json["path"], slug, json['selfmade'], html5 = false),
             type: "application/x-mpegURL"
         }];
     }
-    console.log(setup);
 
     if (typeof player !== 'undefined') {
         player.pause();
@@ -89,21 +83,19 @@ function singlePlayer(json, slug, html5 = true, hls_debug = true) {
         player.load();
         player.play();
     } else {
-        player = videojs('mediaplayer', setup);
-        var keyPrefix = "key://";
-        var urlTpl = "https://softculture-streaming.s3-eu-west-1.amazonaws.com/{key}";
-        var playerDOM = document.getElementById('video')
-        playerDOM.addEventListener('canplaythrough', function() {
-          player.on("loadstart", function (e) {
-            player.tech().hls.xhr.beforeRequest = function(options) {
-                // required for detecting only the key requests
-                if (!options.uri.startsWith(keyPrefix)) { return; }
-                options.headers = options.headers || {};
-                options.headers["Custom-Header"] = "value";
-                options.uri = urlTpl.replace("{key}", options.uri.substring(keyPrefix.length));
-            };
-          });}, false);
-    }
+      player = videojs('mediaplayer', setup);
+      var keyPrefix = "key://";
+      var urlTpl = "https://softculture-streaming.s3-eu-west-1.amazonaws.com/{key}";
+      player.on("loadstart", function (e) {
+          player.tech().hls.xhr.beforeRequest = function(options) {
+              // required for detecting only the key requests
+              if (!options.uri.startsWith(keyPrefix)) { return; }
+              options.headers = options.headers || {};
+              options.headers["Custom-Header"] = "value";
+              options.uri = urlTpl.replace("{key}", options.uri.substring(keyPrefix.length));
+          };
+      });
+  }
 }
 
 // Функция создания кнопки
@@ -150,6 +142,7 @@ function createLesson(lesson, menu) {
 
 // Создание списка видео внутри одного занятия
 function createVideo(video_json, list, tech, slug) {
+    console.log(tech);
     var video_button = createButton(video_json['title'], JSON.stringify(video_json), true);
 
     video_button.addEventListener("click", function() {
@@ -175,7 +168,6 @@ function createVideo(video_json, list, tech, slug) {
 
 // Создание меню с видео
 function createMedialist(data, slug, menu_id, list_id) {
-    console.log(slug);
     var list = document.getElementById(list_id);
     var menu = document.getElementById(menu_id);
 
