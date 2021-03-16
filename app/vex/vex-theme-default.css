@@ -65,7 +65,7 @@
     animation: vex-flyin .5s; }
   .vex.vex-theme-default .vex-content {
     border-radius: 5px;
-    font-family: "Helvetica Neue", sans-serif;
+    font-family: "NeueHaasMedium";
     background: #f0f0f0;
     color: #444;
     padding: 1em;
@@ -114,9 +114,10 @@
       font-weight: inherit;
       font-size: inherit;
       min-height: 2.5em;
+      font-family: "NeueHaasRegular";
       margin: 0 0 .25em; }
       .vex.vex-theme-default .vex-dialog-form .vex-dialog-input select:focus, .vex.vex-theme-default .vex-dialog-form .vex-dialog-input textarea:focus, .vex.vex-theme-default .vex-dialog-form .vex-dialog-input input[type="date"]:focus, .vex.vex-theme-default .vex-dialog-form .vex-dialog-input input[type="datetime"]:focus, .vex.vex-theme-default .vex-dialog-form .vex-dialog-input input[type="datetime-local"]:focus, .vex.vex-theme-default .vex-dialog-form .vex-dialog-input input[type="email"]:focus, .vex.vex-theme-default .vex-dialog-form .vex-dialog-input input[type="month"]:focus, .vex.vex-theme-default .vex-dialog-form .vex-dialog-input input[type="number"]:focus, .vex.vex-theme-default .vex-dialog-form .vex-dialog-input input[type="password"]:focus, .vex.vex-theme-default .vex-dialog-form .vex-dialog-input input[type="search"]:focus, .vex.vex-theme-default .vex-dialog-form .vex-dialog-input input[type="tel"]:focus, .vex.vex-theme-default .vex-dialog-form .vex-dialog-input input[type="text"]:focus, .vex.vex-theme-default .vex-dialog-form .vex-dialog-input input[type="time"]:focus, .vex.vex-theme-default .vex-dialog-form .vex-dialog-input input[type="url"]:focus, .vex.vex-theme-default .vex-dialog-form .vex-dialog-input input[type="week"]:focus {
-        box-shadow: inset 0 0 0 2px #8dbdf1;
+        box-shadow: inset 0 0 0 2px #ffffff;
         outline: none; }
   .vex.vex-theme-default .vex-dialog-form .vex-dialog-buttons {
     *zoom: 1; }
@@ -131,7 +132,7 @@
     margin: 0 0 0 .5em;
     font-family: inherit;
     text-transform: uppercase;
-    letter-spacing: .1em;
+    letter-spacing: .05em;
     font-size: .8em;
     line-height: 1em;
     padding: .75em 2em; }
@@ -146,7 +147,7 @@
           -webkit-animation: none;
           animation: none; } }
     .vex.vex-theme-default .vex-dialog-button.vex-dialog-button-primary {
-      background: #3288e6;
+      background: #1d864a;
       color: #fff; }
     .vex.vex-theme-default .vex-dialog-button.vex-dialog-button-secondary {
       background: #e0e0e0;

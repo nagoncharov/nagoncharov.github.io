@@ -302,9 +302,6 @@ button {
   border: 1px solid #DFE4E8;
   font-family: 'Neuehaas', sans-serif;
 }
-.vex.vex-theme-default .vex-dialog-form .vex-dialog-input input[type="text"]:focus {
-  box-shadow: none;
-}
 .vex.vex-theme-default .vex-dialog-button.vex-dialog-button-secondary {
   background: none;
   color: #000;

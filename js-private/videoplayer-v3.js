@@ -34,7 +34,7 @@ function address(file, slug, selfmade, html5 = false, zip = false, hls_debug = t
     var zipDist = "https://d3kif91e92qv66.cloudfront.net/";
 
     if (zip) {
-        return zipDist + decrypt(file.trim(), slug);
+        return zipDist + decrypt(file.trim(),slug);
     }
     if (selfmade) {
         var folder = "video/";
