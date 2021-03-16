@@ -9,7 +9,7 @@ wrong_pass_message = '<div>Упс! Либо вы ввели неверный п�
 // Functions
 function get_slug() {
   var pathname = window.location.pathname;
-  if (document.location.host && window.location.hostname != 'softculture.github.io') {
+  if (document.location.host && window.location.hostname != 'nagoncharov.github.io') {
     // remote file over http or https
     console.log('prod')
     return pathname.substr(pathname.lastIndexOf("/") + 1);
