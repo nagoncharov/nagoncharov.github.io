@@ -75,6 +75,8 @@ function singlePlayer(json, slug, html5 = true) {
     }
 
     if (typeof player !== 'undefined') {
+        console.log(setup.sources[0].type);
+        console.log(setup.sources[0].src);
         player.pause();
         player.src({
             type: setup.sources[0].type,
