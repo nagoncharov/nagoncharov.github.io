@@ -89,7 +89,7 @@ function singlePlayer(json, slug, html5 = true) {
               {time: 16,  text: "is"},
               {time: 23.6,text: "so"},
               {time: 28,  text: "cool"}
-          ];
+          ]
       });
       var keyPrefix = "key://";
       var urlTpl = "https://softculture-streaming.s3-eu-west-1.amazonaws.com/{key}";
