@@ -72,37 +72,36 @@ function singlePlayer(json, slug, html5 = true) {
     }
 
     if (typeof player !== 'undefined') {
-        var player_element = document.getElementById('video');
-        player_element.addEventListener('canplaythrough', function(){
-          player.pause();
-          player.src({
-              type: setup.sources[0].type,
-              src: setup.sources[0].src
-          });
-          player.load();
-          player.play();
-        }, false);
+        console.log(setup.sources[0].type);
+        console.log(setup.sources[0].src);
+        player.pause();
+        player.src({
+            type: setup.sources[0].type,
+            src: setup.sources[0].src
+        });
+        player.load();
+        player.play();
     } else {
       player = videojs('mediaplayer', setup);
-      // player.markers({
-      //     markers: [
-      //         {time: 9.5, text: "this"},
-      //         {time: 16,  text: "is"},
-      //         {time: 23.6,text: "so"},
-      //         {time: 28,  text: "cool"}
-      //     ]
-      // });
+      player.markers({
+          markers: [
+              {time: 9.5, text: "this"},
+              {time: 16,  text: "is"},
+              {time: 23.6,text: "so"},
+              {time: 28,  text: "cool"}
+          ]
+      });
       var keyPrefix = "key://";
       var urlTpl = "https://softculture-streaming.s3-eu-west-1.amazonaws.com/{key}";
-      // player.on("loadstart", function (e) {
-      //     player.tech().hls.xhr.beforeRequest = function(options) {
-      //         // required for detecting only the key requests
-      //         if (!options.uri.startsWith(keyPrefix)) { return; }
-      //         options.headers = options.headers || {};
-      //         options.headers["Custom-Header"] = "value";
-      //         options.uri = urlTpl.replace("{key}", options.uri.substring(keyPrefix.length));
-      //     };
-      // });
+      player.on("loadstart", function (e) {
+          player.tech().hls.xhr.beforeRequest = function(options) {
+              // required for detecting only the key requests
+              if (!options.uri.startsWith(keyPrefix)) { return; }
+              options.headers = options.headers || {};
+              options.headers["Custom-Header"] = "value";
+              options.uri = urlTpl.replace("{key}", options.uri.substring(keyPrefix.length));
+          };
+      });
   }
 }
 
