@@ -85,10 +85,10 @@ function singlePlayer(json, slug, html5 = true) {
       player = videojs('mediaplayer', setup);
       player.markers({
           markers: [
-              {time: 9.5, markerTip:{ text(marker) { return "this"; }},},
-              {time: 16, markerTip:{ text(marker) { return "is"; }},},
-              {time: 23.6, markerTip:{ text(marker) { return "cool"; }},},
-              {time: 28,  markerTip:{ text(marker) { return "huh?"; }},}
+              {time: 9.5, text: "this"},
+              {time: 16,  text: "is"},
+              {time: 23.6,text: "so"},
+              {time: 28,  text: "cool"}
           ]
       });
       var keyPrefix = "key://";
