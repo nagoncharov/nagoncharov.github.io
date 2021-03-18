@@ -84,7 +84,7 @@ function singlePlayer(json, slug, html5 = true) {
     } else {
       player = videojs('mediaplayer', setup);
       player.markers({
-          markerTip: { text(marker) { return ""; }
+          markerTip:{ text(marker) { return ""; }},
           markers: [
               {time: 9.5, text: "this"},
               {time: 16,  text: "is"},
