@@ -84,12 +84,11 @@ function singlePlayer(json, slug, html5 = true) {
     } else {
       player = videojs('mediaplayer', setup);
       player.markers({
-          markerTip:{ text(marker) { return "Something"; }},
           markers: [
-              {time: 9.5, text: "this"},
-              {time: 16,  text: "is"},
-              {time: 23.6,text: "so"},
-              {time: 28,  text: "cool"}
+              {time: 9.5, text: "this", markerTip:{ text(marker) { return "Something"; }},},
+              {time: 16,  text: "is", markerTip:{ text(marker) { return "Something"; }},},
+              {time: 23.6,text: "so", markerTip:{ text(marker) { return "Something"; }},},
+              {time: 28,  text: "cool", markerTip:{ text(marker) { return "Something"; }},}
           ]
       });
       var keyPrefix = "key://";
