@@ -83,14 +83,14 @@ function singlePlayer(json, slug, html5 = true) {
         player.play();
     } else {
       player = videojs('mediaplayer', setup);
-      player.markers({
-          markers: [
-              {time: 9.5, text: "this"},
-              {time: 16,  text: "is"},
-              {time: 23.6,text: "so"},
-              {time: 28,  text: "cool"}
-          ]
-      });
+      // player.markers({
+      //     markers: [
+      //         {time: 9.5, text: "this"},
+      //         {time: 16,  text: "is"},
+      //         {time: 23.6,text: "so"},
+      //         {time: 28,  text: "cool"}
+      //     ]
+      // });
       var keyPrefix = "key://";
       var urlTpl = "https://softculture-streaming.s3-eu-west-1.amazonaws.com/{key}";
       // player.on("loadstart", function (e) {
