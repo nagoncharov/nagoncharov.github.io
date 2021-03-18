@@ -38,10 +38,8 @@ function address(file, slug, selfmade, html5 = false, zip = false) {
         var folder = "";
     }
     if (html5) {
-        console.log("html5");
         return webDist + folder + decrypt(file.trim(), slug);
     } else {
-        console.log("hey!");
         var path = decrypt(file.trim(), slug);
         path = path.slice(0, -4);
         path = path + "/index.m3u8"
@@ -67,7 +65,6 @@ function singlePlayer(json, slug, html5 = true) {
             type: 'video/mp4'
         }];
     } else {
-        console.log("hls");
         setup.sources = [{
             src: address(json["path"], slug, json['selfmade'], html5 = false),
             type: "application/x-mpegURL"
@@ -86,6 +83,14 @@ function singlePlayer(json, slug, html5 = true) {
         player.play();
     } else {
       player = videojs('mediaplayer', setup);
+      player.markers({
+          markers: [
+              {time: 9.5, text: "this"},
+              {time: 16,  text: "is"},
+              {time: 23.6,text: "so"},
+              {time: 28,  text: "cool"}
+          ];
+      });
       var keyPrefix = "key://";
       var urlTpl = "https://softculture-streaming.s3-eu-west-1.amazonaws.com/{key}";
       player.on("loadstart", function (e) {
