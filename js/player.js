@@ -79,6 +79,14 @@ function singlePlayer(json, slug, html5 = true) {
         });
         player.load();
         player.play();
+        player.markers({
+            markers: [
+                {time: 9.5, text: "Part I. Magic Man"},
+                {time: 60,  text: "Part II. 50% Off"},
+                {time: 120,text: "Part III. The Guy for This"},
+                {time: 170,  text: "Part IV. Namaste"}
+            ]
+        });
     } else {
       player = videojs('mediaplayer', setup);
       player.markers({
