@@ -71,6 +71,9 @@ function singlePlayer(json, slug, html5 = true) {
         }];
     }
 
+    // var chapters = var chapters = {kind:"chapters", src: json['chapters'];, srclang:"en"};
+    var chapters = {kind:"chapters", src:"chapters.vtt", srclang:"en"};
+
     if (typeof player !== 'undefined') {
         player.reset();
         player.src({
@@ -79,11 +82,14 @@ function singlePlayer(json, slug, html5 = true) {
         });
         player.load();
         player.play();
-        var chapters = {kind:"chapters", src:"chapters.vtt", srclang:"en"};
-        player.on('nuevoReady', function(){ player.loadTracks(chapters); });
+        if (chapters){
+            player.on('nuevoReady', function(){ player.loadTracks(chapters); });
+        }
     } else {
       player = videojs('mediaplayer', setup);
       var keyPrefix = "key://";
+
+      // Key acquisition from server
       var urlTpl = "https://softculture-streaming.s3-eu-west-1.amazonaws.com/{key}";
       player.on("loadstart", function (e) {
           player.tech().hls.xhr.beforeRequest = function(options) {
@@ -94,8 +100,9 @@ function singlePlayer(json, slug, html5 = true) {
               options.uri = urlTpl.replace("{key}", options.uri.substring(keyPrefix.length));
           };
       });
-      var chapters = {kind:"chapters", src:"chapters.vtt", srclang:"en"};
-      player.on('nuevoReady', function(){ player.loadTracks(chapters); });
+      if (chapters){
+        player.on('nuevoReady', function(){ player.loadTracks(chapters); });
+      }
   }
 }
 
