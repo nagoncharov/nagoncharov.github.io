@@ -73,7 +73,6 @@ function singlePlayer(json, slug, html5 = true) {
 
     if (typeof player !== 'undefined') {
         player.reset();
-        player.nuevo ({chapterMarkers:false}};
         player.src({
             type: setup.sources[0].type,
             src: setup.sources[0].src
@@ -84,7 +83,6 @@ function singlePlayer(json, slug, html5 = true) {
         player.on('nuevoReady', function(){ player.loadTracks(chapters); });
     } else {
       player = videojs('mediaplayer', setup);
-      player.nuevo ({chapterMarkers:true}};
       var keyPrefix = "key://";
       var urlTpl = "https://softculture-streaming.s3-eu-west-1.amazonaws.com/{key}";
       player.on("loadstart", function (e) {
