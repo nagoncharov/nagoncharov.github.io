@@ -73,18 +73,16 @@ function singlePlayer(json, slug, html5 = true) {
 
     if (typeof player !== 'undefined') {
         player.reset();
-        var chapters = {kind:"chapters", src:"https://softculture.cc/nuevo-videojs/chapters.vtt", srclang:"en"};
-        player.on('nuevoReady', function(){ player.loadTracks(chapters); });
         player.src({
             type: setup.sources[0].type,
             src: setup.sources[0].src
         });
         player.load();
         player.play();
+        var chapters = {kind:"chapters", src:"https://softculture.cc/nuevo-videojs/chapters.vtt", srclang:"en"};
+        player.on('nuevoReady', function(){ player.loadTracks(chapters); });
     } else {
       player = videojs('mediaplayer', setup);
-      var chapters = {kind:"chapters", src:"https://softculture.cc/nuevo-videojs/chapters.vtt", srclang:"en"};
-      player.on('nuevoReady', function(){ player.loadTracks(chapters); });
       var keyPrefix = "key://";
       var urlTpl = "https://softculture-streaming.s3-eu-west-1.amazonaws.com/{key}";
       player.on("loadstart", function (e) {
@@ -96,6 +94,8 @@ function singlePlayer(json, slug, html5 = true) {
               options.uri = urlTpl.replace("{key}", options.uri.substring(keyPrefix.length));
           };
       });
+      var chapters = {kind:"chapters", src:"https://softculture.cc/nuevo-videojs/chapters.vtt", srclang:"en"};
+      player.on('nuevoReady', function(){ player.loadTracks(chapters); });
   }
 }
 
