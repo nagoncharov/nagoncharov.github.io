@@ -79,7 +79,7 @@ function singlePlayer(json, slug, html5 = true) {
         });
         player.load();
         player.play();
-        var chapters = {kind:"chapters", src:"https://softculture.cc/nuevo-videojs/chapters.vtt", srclang:"en"};
+        var chapters = {kind:"chapters", src:"chapters.vtt", srclang:"en"};
         player.on('nuevoReady', function(){ player.loadTracks(chapters); });
     } else {
       player = videojs('mediaplayer', setup);
@@ -94,7 +94,7 @@ function singlePlayer(json, slug, html5 = true) {
               options.uri = urlTpl.replace("{key}", options.uri.substring(keyPrefix.length));
           };
       });
-      var chapters = {kind:"chapters", src:"https://softculture.cc/nuevo-videojs/chapters.vtt", srclang:"en"};
+      var chapters = {kind:"chapters", src:"chapters.vtt", srclang:"en"};
       player.on('nuevoReady', function(){ player.loadTracks(chapters); });
   }
 }
