@@ -75,7 +75,7 @@ function singlePlayer(json, slug, html5 = true) {
     var chapters = {kind:"chapters", src:"chapters.vtt", srclang:"en"};
 
     if (typeof player !== 'undefined') {
-        player.pause();
+        player.reset();
         player.src({
             type: setup.sources[0].type,
             src: setup.sources[0].src
