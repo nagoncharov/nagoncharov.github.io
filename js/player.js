@@ -27,7 +27,7 @@ function address(file, slug, selfmade, html5 = false, zip = false) {
     /* Данные из Amazon Cloudfront */
     var webDist = "https://d35raauzs56ob1.cloudfront.net/";
     var hlsDist = "https://d2mtbe6k2can1m.cloudfront.net/";
-    var zipDist = "https://d3kif91e92qv66.cloudfront.net/";
+    var zipDist = "https://251532c8-0785-4107-9b32-87fe9191dd35.selcdn.net/";
 
     if (zip) {
         return zipDist + decrypt(file.trim(), slug);
@@ -40,7 +40,9 @@ function address(file, slug, selfmade, html5 = false, zip = false) {
     if (html5) {
         return webDist + folder + decrypt(file.trim(), slug);
     } else {
-        var path = decrypt(file.trim(), slug);
+        console.log(path);
+        //var path = decrypt(file.trim(), slug);
+        var path = file.trim();
         path = path.slice(0, -4);
         path = path + "/index.m3u8"
         return hlsDist + folder + path;
@@ -56,7 +58,8 @@ function singlePlayer(json, slug, html5 = true) {
         preload: "auto",
         aspectRatio: "16:9",
         fluid: true,
-        playbackRates: [1, 1.25, 1.5]
+        playbackRates: [1, 1.25, 1.5],
+        plugins: {"nuevo": {chapterMarkers: true}}
     };
 
     if (html5) {

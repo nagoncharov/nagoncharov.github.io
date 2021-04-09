@@ -1,63 +1,20 @@
 // Messages
 const example_data = {
     "result": {
-        "tech": true,
+        "tech": false,
         "video": [{
                 "files": [{
-                        "path": "online/RVT/RVT_19.20.03_L1-1_Interface.mp4",
+                        "path": "CAP/CAP_14.3.03_L5_Cap_14.mp4",
                         "selfmade": true,
                         "title": "1-1. Interface"
                     },
                     {
-                        "path": "CBL/CBL_8.17.09_L1_Landscape.mp4",
+                        "path": "CBL/CBL_11.22.06_L1_Teamwork.mp4",
                         "selfmade": true,
-                        "title": "1-2. Blank"
-                    },
-                    {
-                        "path": "online/RVT/RVT_19.20.03_L1-3_Modify.mp4",
-                        "selfmade": true,
-                        "title": "1-3. Modify"
+                        "title": "1-1. Interface"
                     }
                 ],
                 "lesson": 1
-            },
-            {
-                "files": [{
-                        "path": "online/RVT/RVT_19.20.03_L2-1_Levels.mp4",
-                        "selfmade": true,
-                        "title": "2-5. Levels"
-                    },
-                    {
-                        "path": "online/RVT/RVT_19.20.03_L2-2_Axis.mp4",
-                        "selfmade": true,
-                        "title": "2-6. Axis"
-                    },
-                    {
-                        "path": "online/RVT/RVT_19.20.03_L2-3_Filters.mp4",
-                        "selfmade": true,
-                        "title": "2-7. Filters"
-                    }
-                ],
-                "lesson": 2
-            },
-            {
-                "files": [{
-                        "path": "online/RVT/RVT_19.20.03_L4-1_Stair.mp4",
-                        "selfmade": true,
-                        "title": "3-13. 1 View Properties"
-                    },
-                    {
-                        "path": "online/RVT/RVT_19.20.03_L3_2_Elevation_Section.mp4",
-                        "selfmade": true,
-                        "title": "3-14. 2 Elevation Section"
-                    },
-                    {
-                        "path": "online/RVT/RVT_19.20.03_L3_3_Floor.mp4",
-                        "selfmade": true,
-                        "title": "3-15. 3 Floor"
-                    }
-                ],
-                "lesson": 3
             }
         ]
     }
@@ -82,7 +39,7 @@ function success_module(video_data, mail) {
 // Загрузка плеера и списка видеозаписей
 function load_player(video_data) {
     // Загрузка плеера с первым видео
-    console.log(video_data);
+    video_data = example_data;
     var first_video = video_data['result']['video'][0]['files'][0];
     var tech = video_data['result']['tech'];
     console.log(tech);
