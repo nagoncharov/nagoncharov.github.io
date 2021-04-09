@@ -9,7 +9,7 @@ const example_data = {
                         "title": "1-1. Interface"
                     },
                     {
-                        "path": "CBL/CBL_11.22.06_L1_Teamwork.mp4",
+                        "path": "PRT/PRT_37.23.03_L2-1_Intro.mp4",
                         "selfmade": true,
                         "title": "1-1. Interface"
                     }
