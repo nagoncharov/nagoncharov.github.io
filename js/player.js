@@ -26,7 +26,7 @@ function decrypt(ciphertextStr, arbitary_key) {
 function address(file, slug, selfmade, html5 = false, zip = false) {
     /* Данные из Amazon Cloudfront */
     var webDist = "https://d35raauzs56ob1.cloudfront.net/";
-    var hlsDist = "http://251532c8-0785-4107-9b32-87fe9191dd35.selcdn.net/";
+    var hlsDist = "https://251532c8-0785-4107-9b32-87fe9191dd35.selcdn.net/";
     var zipDist = "https://251532c8-0785-4107-9b32-87fe9191dd35.selcdn.net/";
 
     if (zip) {
