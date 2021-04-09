@@ -58,8 +58,7 @@ function singlePlayer(json, slug, html5 = true) {
         preload: "auto",
         aspectRatio: "16:9",
         fluid: true,
-        playbackRates: [1, 1.25, 1.5],
-        plugins: {"nuevo": {chapterMarkers: true}}
+        playbackRates: [1, 1.25, 1.5]
     };
 
     if (html5) {
