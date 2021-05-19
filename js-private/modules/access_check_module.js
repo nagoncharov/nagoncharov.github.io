@@ -39,8 +39,9 @@ const inputPassword = () => {
 
 // Настройка и отправка запроса к api
 const checkAccessByMail = (email) => {
-  const slug = extractSlug();
+  //const slug = extractSlug();
   //const slug = window.location.search.substr(window.location.search.lastIndexOf("=") + 1);
+  const slug = "tst10101";
   let xhr = new XMLHttpRequest();
   const url = `https://api.softculture.cc/v1/video-authentication?email=${email}&slug=${slug}`;
   xhr.open('GET', url, true);
