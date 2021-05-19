@@ -39,7 +39,7 @@ function success_module(video_data, mail) {
 // Загрузка плеера и списка видеозаписей
 function load_player(video_data) {
     // Загрузка плеера с первым видео
-    video_data = example_data;
+    //video_data = example_data;
     var first_video = video_data['result']['video'][0]['files'][0];
     var tech = video_data['result']['tech'];
     console.log(tech);
