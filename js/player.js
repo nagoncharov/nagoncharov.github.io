@@ -58,7 +58,15 @@ function singlePlayer(json, slug, html5 = true) {
         preload: "auto",
         aspectRatio: "16:9",
         fluid: true,
-        playbackRates: [1, 1.25, 1.5]
+        playbackRates: [1, 1.25, 1.5],
+        html5: {
+          hls: {
+            overrideNative: overrideNative
+          },
+          nativeVideoTracks: !overrideNative,
+          nativeAudioTracks: !overrideNative,
+          nativeTextTracks: !overrideNative
+        }
     };
 
     if (html5) {

@@ -42,7 +42,7 @@ const checkAccessByMail = (email) => {
   //const slug = extractSlug();
   const slug = "tst10101";
   let xhr = new XMLHttpRequest();
-  const url = `https://api.softculture.cc/v1/video-authentication?email=${email}&slug=${slug}`;
+  const url = `https://api.softculture.cc/v1/video-authentication?email=${email}&slug=tst10101`;
   xhr.open('GET', url, true);
 
   xhr.onload = () => {
