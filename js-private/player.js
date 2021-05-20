@@ -71,7 +71,7 @@ function address(file, slug, selfmade, html5 = false, zip = false) {
 
 // Функция создания плеера без плейлиста Videojs
 function singlePlayer(json, slug, html5 = true) {
-    var overrideNative = false;
+    var overrideNative = true;
     var setup = {
         controls: true,
         width: "100%",
