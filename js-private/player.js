@@ -25,18 +25,19 @@ function decrypt(ciphertextStr, arbitary_key) {
 }
 
 function grand_key_acquisition(player) {
-    var keyPrefix = "key://";
+    var keyPreabmule = "http://api.softculture";
+    var keyPrefixLength = 29;
     var urlTpl = "https://softculture-streaming.s3-eu-west-1.amazonaws.com/{key}";
 
     player.on("loadstart", function(e) {
         player.tech().hls.xhr.beforeRequest = function(options) {
             // required for detecting only the key requests
-            if (!options.uri.startsWith(keyPrefix)) {
+            if (!options.uri.startsWith(keyPreabmule)) {
                 return;
             }
             options.headers = options.headers || {};
             options.headers["Custom-Header"] = "value";
-            options.uri = urlTpl.replace("{key}", options.uri.substring(keyPrefix.length));
+            options.uri = urlTpl.replace("{key}", options.uri.substring(keyPrefixLength) + "/enc.key");
         };
     });
 }
